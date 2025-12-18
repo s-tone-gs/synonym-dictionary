@@ -1,0 +1,35 @@
+{
+  "name": "synonym-dictionary",
+  "version": "1.0.0",
+  "description": "Displays a list of synonyms for the word passed to the command line by the user. It then displays the part of speech, definition, and example sentence for the selected synonym.",
+  "keywords": [
+    "synonym",
+    "dictionary"
+  ],
+  "license": "ISC",
+  "author": "",
+  "type": "module",
+  "main": "index.js",
+  "bin": {
+    "synonym-dictionary": "./index.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "prettier --check . && eslint .",
+    "fix": "prettier --write . && eslint --fix ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/s-tone-gs/synonym-dictionary.git"
+  },
+  "dependencies": {
+    "enquirer": "^2.4.1",
+    "synonyms": "^1.0.1"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.39.2",
+    "eslint": "^9.39.2",
+    "globals": "^16.5.0",
+    "prettier": "^3.7.4"
+  }
+}
