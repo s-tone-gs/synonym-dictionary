@@ -30,24 +30,24 @@ async function fetchFreeDictionary(selectedSynonym) {
   return response;
 }
 
-function buildContent(subjectSynonym, dictionaryEntries) {
-  const contents = [];
-  contents.push(`📖 word：${subjectSynonym}`);
+function buildDescription(subjectSynonym, dictionaryEntries) {
+  const descriptions = [];
+  descriptions.push(`📖 word：${subjectSynonym}`);
   for (const sections of dictionaryEntries) {
     for (const meaning of sections.meanings) {
-      contents.push(` 🏷️ partOfSpeech：${meaning.partOfSpeech}`);
-      contents.push(" 🔹 definitions");
+      descriptions.push(` 🏷️ partOfSpeech：${meaning.partOfSpeech}`);
+      descriptions.push(" 🔹 definitions");
       let number = 1;
       for (const definitionBlock of meaning.definitions) {
-        contents.push(`     ${number}. ${definitionBlock.definition}`);
+        descriptions.push(`     ${number}. ${definitionBlock.definition}`);
         if (definitionBlock.example) {
-          contents.push(`     💡 example：${definitionBlock.example}`);
+          descriptions.push(`     💡 example：${definitionBlock.example}`);
         }
         number++;
       }
     }
   }
-  return contents.join("\n");
+  return descriptions.join("\n");
 }
 
 const word = process.argv[2];
@@ -76,4 +76,4 @@ if (response.status === 404) {
   process.exit();
 }
 const dictionaryEntries = await response.json();
-console.log(buildContent(subjectSynonym, dictionaryEntries));
+console.log(buildDescription(subjectSynonym, dictionaryEntries));
