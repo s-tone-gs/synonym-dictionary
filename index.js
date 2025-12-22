@@ -30,10 +30,10 @@ async function fetchFreeDictionary(selectedSynonym) {
   return response;
 }
 
-function buildContent(subjectSynonym, dictionaryEntry) {
+function buildContent(subjectSynonym, dictionaryEntries) {
   const contents = [];
   contents.push(`📖 word：${subjectSynonym}`);
-  for (const sections of dictionaryEntry) {
+  for (const sections of dictionaryEntries) {
     for (const meaning of sections.meanings) {
       contents.push(` 🏷️ partOfSpeech：${meaning.partOfSpeech}`);
       contents.push(" 🔹 definitions");
@@ -75,5 +75,5 @@ if (response.status === 404) {
   console.log(`meanings for ${subjectSynonym} not found`);
   process.exit();
 }
-const dictionaryEntry = await response.json();
-console.log(buildContent(subjectSynonym, dictionaryEntry));
+const dictionaryEntries = await response.json();
+console.log(buildContent(subjectSynonym, dictionaryEntries));
