@@ -50,7 +50,12 @@ function buildContent(subjectSynonym, dictionaryEntry) {
   return contents.join("\n");
 }
 
-const foundSynonyms = synonyms(process.argv[2]);
+const word = process.argv[2];
+if (word === undefined) {
+  console.log("Enter a word");
+  process.exit();
+}
+const foundSynonyms = synonyms(word);
 if (foundSynonyms === undefined) {
   console.log("synonyms not found");
   process.exit();
