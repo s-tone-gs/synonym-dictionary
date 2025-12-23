@@ -6,10 +6,10 @@ const { Select } = enquirer;
 
 function buildChoices(foundSynonyms) {
   const choices = new Set();
-  for (let key in foundSynonyms) {
+  for (const key in foundSynonyms) {
     const words = foundSynonyms[key];
-    for (let i = 0; i < words.length; i++) {
-      choices.add(words[i]);
+    for (const word of words) {
+      choices.add(word);
     }
   }
   return [...choices];
