@@ -1,6 +1,6 @@
 {
   "name": "synonym-dictionary",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Displays a list of synonyms for the word passed to the command line by the user. It then displays the part of speech, definition, and example sentence for the selected synonym.",
   "keywords": [
     "synonym",
